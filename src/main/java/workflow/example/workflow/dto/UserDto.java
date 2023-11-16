@@ -1,8 +1,12 @@
 package workflow.example.workflow.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.io.Serializable;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class UserDto implements Serializable {
 

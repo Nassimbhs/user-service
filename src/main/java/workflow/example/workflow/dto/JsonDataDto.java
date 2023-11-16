@@ -1,8 +1,12 @@
 package workflow.example.workflow.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import javax.persistence.Column;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class JsonDataDto {
 
