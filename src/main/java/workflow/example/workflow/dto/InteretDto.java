@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class InteretDto {
     private Long id;
-    private String interet;
+    private String nom;
 }
