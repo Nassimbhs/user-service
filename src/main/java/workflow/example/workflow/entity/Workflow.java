@@ -3,7 +3,6 @@ package workflow.example.workflow.entity;
 import lombok.*;
 import org.hibernate.Hibernate;
 import workflow.example.workflow.listener.WorkflowListener;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class Workflow implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Workflow workflow = (Workflow) o;
+        var workflow = (Workflow) o;
         return getId() != null && Objects.equals(getId(), workflow.getId());
     }
 

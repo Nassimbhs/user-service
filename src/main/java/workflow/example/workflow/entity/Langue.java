@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-public class Langue {
+public class Langue implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,7 @@ public class Langue {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Langue langue = (Langue) o;
+        var langue = (Langue) o;
         return getId() != null && Objects.equals(getId(), langue.getId());
     }
 

@@ -1,10 +1,8 @@
 package workflow.example.workflow.entity;
 
-import jdk.jfr.BooleanFlag;
 import lombok.*;
 import org.hibernate.Hibernate;
 import workflow.example.workflow.listener.CvListener;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -63,7 +61,7 @@ public class Cv implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Cv cv = (Cv) o;
+        var cv = (Cv) o;
         return getId() != null && Objects.equals(getId(), cv.getId());
     }
 

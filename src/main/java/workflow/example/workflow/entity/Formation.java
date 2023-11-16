@@ -28,7 +28,7 @@ public class Formation implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Formation formation = (Formation) o;
+        var formation = (Formation) o;
         return getId() != null && Objects.equals(getId(), formation.getId());
     }
 
