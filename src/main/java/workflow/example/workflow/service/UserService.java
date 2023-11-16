@@ -63,7 +63,7 @@ public class UserService {
             }
             return roleNames;
         } else {
-            return null;
+            return Collections.emptySet();
         }
     }
     public List<User> getUsersByGroupId(Long groupId) {

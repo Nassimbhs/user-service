@@ -57,7 +57,7 @@ public class GroupeUserService {
 
     @Transactional
     public void deleteGroupeUserById(Long id) {
-        GroupeUser groupeUser = groupeUserRepository
+        var groupeUser = groupeUserRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "group not found !"));
         groupeUserRepository.delete(groupeUser);
@@ -76,7 +76,7 @@ public class GroupeUserService {
         }
     }
     public void addUsersToGroup(Long groupId, List<Long> userIds) {
-        GroupeUser groupUser = groupeUserRepository.findById(groupId)
+        var groupUser = groupeUserRepository.findById(groupId)
                 .orElseThrow(() -> new EntityNotFoundException("Group not found with id " + groupId));
 
         List<User> users = userRepository.findAllById(userIds);
@@ -86,7 +86,7 @@ public class GroupeUserService {
     }
 
     public void removeUserFromGroup(Long groupId, Long userId) {
-        GroupeUser groupUser = groupeUserRepository.findById(groupId)
+        var groupUser = groupeUserRepository.findById(groupId)
                 .orElseThrow(() -> new EntityNotFoundException("Group not found with id " + groupId));
 
         User user = userRepository.findById(userId)
