@@ -3,14 +3,13 @@ package workflow.example.workflow.converter;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.FormationDto;
 import workflow.example.workflow.entity.Formation;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class FormationConverter {
     public FormationDto entityToDto(Formation formation){
-        FormationDto dto = new FormationDto();
+        var dto = new FormationDto();
         dto.setId(formation.getId());
         dto.setNomFormation(formation.getNomFormation());
         dto.setEtablissement(formation.getEtablissement());

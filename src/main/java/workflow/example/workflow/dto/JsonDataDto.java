@@ -1,7 +1,6 @@
 package workflow.example.workflow.dto;
 
 import lombok.Data;
-
 import javax.persistence.Column;
 
 @Data

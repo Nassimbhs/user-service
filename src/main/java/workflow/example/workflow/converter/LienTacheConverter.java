@@ -3,7 +3,6 @@ package workflow.example.workflow.converter;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.LienTacheDto;
 import workflow.example.workflow.entity.LienTache;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 public class LienTacheConverter {
 
     public LienTacheDto entityToDto(LienTache lienTache) {
-        LienTacheDto dto = new LienTacheDto();
+        var dto = new LienTacheDto();
         dto.setId(lienTache.getId());
         dto.setSource(lienTache.getSource());
         dto.setTarget(lienTache.getTarget());

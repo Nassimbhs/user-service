@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class InteretConverter {
 
     public InteretDto entityToDto(Interet interet){
-        InteretDto dto = new InteretDto();
+        var dto = new InteretDto();
         dto.setId(interet.getId());
         dto.setNom(interet.getNom());
         return dto;

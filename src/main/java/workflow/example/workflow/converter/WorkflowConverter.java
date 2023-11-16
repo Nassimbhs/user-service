@@ -1,21 +1,21 @@
 package workflow.example.workflow.converter;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.WorkflowDto;
 import workflow.example.workflow.entity.Workflow;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class WorkflowConverter {
-    @Autowired
-    private TacheConverter tacheConverter;
+    private final TacheConverter tacheConverter;
 
     public WorkflowDto entityToDto(Workflow workflow){
 
-        WorkflowDto dto = new WorkflowDto();
+        var dto = new WorkflowDto();
         dto.setId(workflow.getId());
         dto.setName(workflow.getName());
         dto.setDescription(workflow.getDescription());

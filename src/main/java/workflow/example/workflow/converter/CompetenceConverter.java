@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class CompetenceConverter {
 
     public CompetenceDto entityToDto(Competence competence){
-        CompetenceDto dto = new CompetenceDto();
+        var dto = new CompetenceDto();
         dto.setId(competence.getId());
         dto.setNomCompetence(competence.getNomCompetence());
         return dto;

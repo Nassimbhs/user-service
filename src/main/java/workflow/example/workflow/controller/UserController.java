@@ -6,15 +6,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import workflow.example.workflow.converter.UserConverter;
-import workflow.example.workflow.dto.CvDto;
 import workflow.example.workflow.dto.UserDto;
-import workflow.example.workflow.entity.Cv;
 import workflow.example.workflow.entity.User;
 import workflow.example.workflow.service.UserService;
 import java.util.List;
@@ -27,15 +24,8 @@ import java.util.Set;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
-    private UserConverter userConverter;
-
-    private UserService userService;
-
-    @Autowired
-    public UserController(UserConverter userConverter, UserService userService) {
-        this.userConverter = userConverter;
-        this.userService = userService;
-    }
+    private final UserConverter userConverter;
+    private final UserService userService;
 
     @GetMapping("/allUser/")
     @Operation(

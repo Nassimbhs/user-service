@@ -5,26 +5,24 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import workflow.example.workflow.converter.GroupeUserConverter;
 import workflow.example.workflow.dto.GroupeUserDto;
 import workflow.example.workflow.entity.GroupeUser;
 import workflow.example.workflow.service.GroupeUserService;
-
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/GroupeUser")
 @Tag(name = "GroupeUser", description = "CRUD GroupeUser")
 @CrossOrigin(origins = "http://localhost:4200")
 public class GroupeUserController {
 
-    @Autowired
-    private GroupeUserService groupeUserService;
-    @Autowired
-    private GroupeUserConverter groupeUserConverter;
+    private final GroupeUserService groupeUserService;
+    private final GroupeUserConverter groupeUserConverter;
 
     @PostMapping("/addGroupeUser")
     @Operation(
@@ -128,7 +126,7 @@ public class GroupeUserController {
     }
 
     @DeleteMapping("/{groupId}/users/{userId}")
-    public ResponseEntity<?> removeUserFromGroup(@PathVariable Long groupId, @PathVariable Long userId) {
+    public ResponseEntity<Void> removeUserFromGroup(@PathVariable Long groupId, @PathVariable Long userId) {
         groupeUserService.removeUserFromGroup(groupId, userId);
         return ResponseEntity.ok().build();
     }

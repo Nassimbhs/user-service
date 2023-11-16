@@ -1,6 +1,6 @@
 package workflow.example.workflow.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,12 +17,11 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class GroupeUserService {
 
-    @Autowired
-    private GroupeUserRepository groupeUserRepository;
-    @Autowired
-    private UserRepository userRepository;
+    private final GroupeUserRepository groupeUserRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public ResponseEntity<Object> addGroupeUser(GroupeUser groupeUser) {

@@ -1,24 +1,22 @@
 package workflow.example.workflow.converter;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.TacheDto;
 import workflow.example.workflow.entity.Tache;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class TacheConverter {
-    @Autowired
-    private LienTacheConverter lienTacheConverter;
-    @Autowired
-    private UserConverter userConverter;
-    @Autowired
-    private TacheAtraiterConverter tacheAtraiterConverter;
+    private final LienTacheConverter lienTacheConverter;
+    private final UserConverter userConverter;
+    private final TacheAtraiterConverter tacheAtraiterConverter;
 
     public TacheDto entityToDto(Tache tache){
-        TacheDto dto = new TacheDto();
+        var dto = new TacheDto();
         dto.setId(tache.getId());
         dto.setName(tache.getName());
         dto.setCreationDate(tache.getCreationDate());

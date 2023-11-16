@@ -3,7 +3,6 @@ package workflow.example.workflow.converter;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.LangueDto;
 import workflow.example.workflow.entity.Langue;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 public class LangueConverter {
 
     public LangueDto entityToDto(Langue langue){
-        LangueDto dto = new LangueDto();
+        var dto = new LangueDto();
         dto.setId(langue.getId());
         dto.setNom(langue.getNom());
         dto.setNiveau(langue.getNiveau());

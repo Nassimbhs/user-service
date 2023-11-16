@@ -1,32 +1,27 @@
 package workflow.example.workflow.converter;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.CvDto;
 import workflow.example.workflow.entity.Cv;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class CvConverter {
 
-    @Autowired
-    private FormationConverter formationConverter;
-    @Autowired
-    private CompetenceConverter competenceConverter;
-    @Autowired
-    private InteretConverter interetConverter;
-    @Autowired
-    private LangueConverter langueConverter;
-    @Autowired
-    private ExperienceConverter experienceConverter;
+    private final FormationConverter formationConverter;
+    private final CompetenceConverter competenceConverter;
+    private final InteretConverter interetConverter;
+    private final LangueConverter langueConverter;
+    private final ExperienceConverter experienceConverter;
 
     public CvDto entityToDto(Cv cv){
         if (cv == null) {
             return null;
         }
-        CvDto dto = new CvDto();
+        var dto = new CvDto();
         dto.setId(cv.getId());
         dto.setEmail(cv.getEmail());
         dto.setTel(cv.getTel());

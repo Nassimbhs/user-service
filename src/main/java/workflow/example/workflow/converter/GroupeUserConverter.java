@@ -3,7 +3,6 @@ package workflow.example.workflow.converter;
 import org.springframework.stereotype.Component;
 import workflow.example.workflow.dto.GroupeUserDto;
 import workflow.example.workflow.entity.GroupeUser;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 public class GroupeUserConverter {
 
     public GroupeUserDto entityToDto(GroupeUser groupeUser){
-        GroupeUserDto dto = new GroupeUserDto();
+        var dto = new GroupeUserDto();
         dto.setId(groupeUser.getId());
         dto.setNom(groupeUser.getNom());
         dto.setDescription(groupeUser.getDescription());

@@ -42,7 +42,6 @@ public class UserService {
     public User findUserById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) {
-            Optional<User> responsable = userRepository.findById(id);
             return userOptional.get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
@@ -56,7 +55,7 @@ public class UserService {
     public Set<String> getRoleNamesByUserId(Long userId) {
         Optional<User> optionalUser = userRepository.findById(userId);
         if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
+            var user = optionalUser.get();
             Set<Role> roles = user.getRoles();
             Set<String> roleNames = new HashSet<>();
             for (Role role : roles) {
